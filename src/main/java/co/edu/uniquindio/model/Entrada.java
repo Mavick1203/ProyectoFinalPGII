@@ -11,11 +11,14 @@ public class Entrada {
     private final double       precioFinal;
     private EstadoEntrada estado;
 
-    public Entrada(Zona zona, Asiento asiento, double precioFinal) {
+    public Entrada(String idEntrada,Zona zona, Asiento asiento, double precioFinal) {
         this.idEntrada   = UUID.randomUUID().toString();
         this.zona        = zona;
         this.asiento     = asiento;
         this.precioFinal = precioFinal;
+        if (precioFinal < 0) {
+            throw new IllegalArgumentException("El precio final no puede ser negativo");
+        }
         this.estado      = EstadoEntrada.ACTIVA;
     }
     public void marcarUsada()   { estado = EstadoEntrada.USADA; }

@@ -1,4 +1,4 @@
-package co.edu.uniquindio.patterns.creacionales;
+package co.edu.uniquindio.patterns.creacionales.Singleton;
 
 import co.edu.uniquindio.model.Usuario;
 
