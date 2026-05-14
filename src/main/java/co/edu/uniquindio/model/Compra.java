@@ -21,8 +21,8 @@ public class Compra {
 
     private final List<String>    serviciosAdicionales;
 
-    Compra(Usuario usuario, Evento evento, List<Entrada> entradas,
-           List<String> serviciosAdicionales, double total) {
+    public Compra(Usuario usuario, Evento evento, List<Entrada> entradas,
+                  List<String> serviciosAdicionales, double total) {
         this.idCompra = UUID.randomUUID().toString();
         this.usuario = usuario;
         this.evento = evento;

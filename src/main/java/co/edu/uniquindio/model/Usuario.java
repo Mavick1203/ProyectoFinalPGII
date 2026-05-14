@@ -20,12 +20,14 @@ public class Usuario {
     private final List<String> metodosPago;
     private RolUsuario rolUsuario;
 
-    public Usuario(String idUsuario, String nombre, String correo, String telefono,String Contrasenia, List<String> metodosPago, RolUsuario rolUsuario) {
+    public Usuario(String idUsuario, String nombre, String correo, String telefono, String Contrasenia, List<String> metodosPago, RolUsuario rolUsuario) {
         this.idUsuario = UUID.randomUUID().toString();
         this.nombre = nombre;
         this.correo = correo;
         this.telefono = telefono;
-        this.metodosPago = new ArrayList<>();
+        this.Contrasenia = Contrasenia;
+        this.metodosPago = new ArrayList<>(metodosPago);
+        this.rolUsuario = rolUsuario;
     }
 
     public void agregarMetodoPago(String metodo){

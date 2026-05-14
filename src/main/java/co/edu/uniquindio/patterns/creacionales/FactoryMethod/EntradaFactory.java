@@ -1,4 +1,4 @@
-package co.edu.uniquindio.patterns.creacionales.Singleton.FactoryMethod;
+package co.edu.uniquindio.patterns.creacionales.FactoryMethod;
 
 import co.edu.uniquindio.model.Asiento;
 import co.edu.uniquindio.model.Entrada;

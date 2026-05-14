@@ -1,16 +1,14 @@
-package co.edu.uniquindio.patterns.creacionales.Singleton.FactoryMethod;
+package co.edu.uniquindio.patterns.creacionales.FactoryMethod;
 
 import co.edu.uniquindio.model.Asiento;
 import co.edu.uniquindio.model.Entrada;
 import co.edu.uniquindio.model.Zona;
 
-final class EntradaVIPFactory implements EntradaFactory{
-    private static final double FACTOR_VIP = 1.50;
-
+public final class EntradaGeneralFactory implements EntradaFactory {
     @Override
     public Entrada crearEntrada(Zona zona, Asiento asiento) {
         validarZona(zona);
-        double precio = zona.getPrecioBase() * FACTOR_VIP;
+        double precio = zona.getPrecioBase();
         return new Entrada(generarId(), zona, asiento, precio);
     }
 }

@@ -1,11 +1,13 @@
 package co.edu.uniquindio.model;
 
+import co.edu.uniquindio.patterns.estructurales.Composite.IComponenteRecinto;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.UUID;
 
-public class Recinto {
+public class Recinto implements IComponenteRecinto {
     private final String     idRecinto;
     private String           nombre;
     private String           direccion;
@@ -62,6 +64,11 @@ public class Recinto {
     }
     public List<Zona> getZonas() {
         return Collections.unmodifiableList(zonas);
+    }
+
+    @Override
+    public int getCapacidad() {
+        return getCapacidadTotal();
     }
 
     @Override

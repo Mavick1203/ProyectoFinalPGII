@@ -1,10 +1,11 @@
 package co.edu.uniquindio.model;
 
 import co.edu.uniquindio.model.enums.EstadoAsiento;
+import co.edu.uniquindio.patterns.estructurales.Composite.IComponenteRecinto;
 
 import java.util.UUID;
 
-public class Asiento {
+public class Asiento implements IComponenteRecinto {
     private final String idAsiento;
     private final String fila;
     private final int numero;
@@ -59,6 +60,16 @@ public class Asiento {
 
     public void setEstado(EstadoAsiento estado) {
         this.estado = estado;
+    }
+
+    @Override
+    public String getNombre() {
+        return fila + "-" + numero;
+    }
+
+    @Override
+    public int getCapacidad() {
+        return 1;
     }
 
     @Override

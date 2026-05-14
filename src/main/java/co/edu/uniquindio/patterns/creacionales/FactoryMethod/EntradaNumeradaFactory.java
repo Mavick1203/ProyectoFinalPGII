@@ -1,10 +1,10 @@
-package co.edu.uniquindio.patterns.creacionales.Singleton.FactoryMethod;
+package co.edu.uniquindio.patterns.creacionales.FactoryMethod;
 
 import co.edu.uniquindio.model.Asiento;
 import co.edu.uniquindio.model.Entrada;
 import co.edu.uniquindio.model.Zona;
 
-final class EntradaNumeradaFactory implements EntradaFactory {
+public final class EntradaNumeradaFactory implements EntradaFactory {
     private static final double FACTOR_NUMERADA = 1.10;
 
     @Override
