@@ -1,4 +1,4 @@
-package co.edu.uniquindio.patterns.creacionales.Adapter;
+package co.edu.uniquindio.patterns.estructurales.Adapter;
 
 public class PdfBoxWriter {
 
