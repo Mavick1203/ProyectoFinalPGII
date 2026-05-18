@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+
+<AnchorPane xmlns="http://javafx.com/javafx"
+            xmlns:fx="http://javafx.com/fxml"
+            fx:controller="co.edu.uniquindio.viewControllers.EventoViewController"
+            prefHeight="640.0" prefWidth="800.0"
+            style="-fx-background-color: #f5f5f0;">
+
+    <VBox spacing="0"
+          AnchorPane.topAnchor="0" AnchorPane.bottomAnchor="0"
+          AnchorPane.leftAnchor="0" AnchorPane.rightAnchor="0">
+
+        <!-- Barra superior / nav -->
+        <HBox alignment="CENTER_LEFT" spacing="16"
+              style="-fx-background-color: white;
+                     -fx-border-color: #e0e0d8; -fx-border-width: 0 0 0.5 0;
+                     -fx-padding: 14 24;">
+            <Label text="EventosUQ"
+                   style="-fx-font-size: 16; -fx-font-weight: 500; -fx-text-fill: #1a1a18;"/>
+            <Region HBox.hgrow="ALWAYS"/>
+            <Button text="Mi perfil" onAction="#onIrAPerfil"
+                    style="-fx-font-size: 13; -fx-background-color: transparent;
+                           -fx-text-fill: #5f5e5a; -fx-border-color: #d3d1c7;
+                           -fx-border-radius: 8; -fx-background-radius: 8;
+                           -fx-pref-height: 32; -fx-cursor: hand;"/>
+            <Button text="Mis compras" onAction="#onIrAHistorial"
+                    style="-fx-font-size: 13; -fx-background-color: transparent;
+                           -fx-text-fill: #5f5e5a; -fx-border-color: #d3d1c7;
+                           -fx-border-radius: 8; -fx-background-radius: 8;
+                           -fx-pref-height: 32; -fx-cursor: hand;"/>
+            <Button text="Cerrar sesión" onAction="#onCerrarSesion"
+                    style="-fx-font-size: 13; -fx-background-color: transparent;
+                           -fx-text-fill: #a32d2d; -fx-border-color: #f09595;
+                           -fx-border-radius: 8; -fx-background-radius: 8;
+                           -fx-pref-height: 32; -fx-cursor: hand;"/>
+        </HBox>
+
+        <!-- Cuerpo principal -->
+        <VBox spacing="16" style="-fx-padding: 24;"
+              VBox.vgrow="ALWAYS">
+
+            <!-- Encabezado -->
+            <VBox spacing="4">
+                <Label text="Eventos disponibles"
+                       style="-fx-font-size: 20; -fx-font-weight: 500; -fx-text-fill: #1a1a18;"/>
+                <Label text="Explora y compra entradas para los próximos eventos"
+                       style="-fx-font-size: 13; -fx-text-fill: #888780;"/>
+            </VBox>
+
+            <!-- Panel de filtros -->
+            <HBox spacing="12" alignment="CENTER_LEFT"
+                  style="-fx-background-color: white;
+                         -fx-border-color: #e0e0d8; -fx-border-width: 0.5;
+                         -fx-border-radius: 8; -fx-background-radius: 8;
+                         -fx-padding: 14 16;">
+                <TextField fx:id="txtBusqueda"
+                           promptText="Buscar por nombre o descripción..."
+                           prefWidth="240"
+                           style="-fx-pref-height: 34; -fx-font-size: 13;
+                                  -fx-border-color: #d3d1c7; -fx-border-radius: 8;
+                                  -fx-background-radius: 8; -fx-padding: 0 10;"/>
+
+                <ComboBox fx:id="cmbCiudad" prefWidth="140" prefHeight="34"
+                          style="-fx-font-size: 13;"/>
+
+                <ComboBox fx:id="cmbCategoria" prefWidth="140" prefHeight="34"
+                          style="-fx-font-size: 13;"/>
+
+                <Button text="Filtrar" onAction="#onFiltrar"
+                        style="-fx-pref-height: 34; -fx-font-size: 13; -fx-font-weight: 500;
+                               -fx-background-color: #2c2c2a; -fx-text-fill: white;
+                               -fx-border-radius: 8; -fx-background-radius: 8;
+                               -fx-padding: 0 18; -fx-cursor: hand;"/>
+            </HBox>
+
+            <!-- Lista de eventos -->
+            <ListView fx:id="lstEventos"
+                      VBox.vgrow="ALWAYS"
+                      style="-fx-border-color: #e0e0d8; -fx-border-width: 0.5;
+                             -fx-border-radius: 8; -fx-background-radius: 8;
+                             -fx-font-size: 13;"/>
+
+            <!-- Acciones -->
+            <HBox spacing="12" alignment="CENTER_LEFT">
+                <Button text="Comprar entrada"
+                        onAction="#onSeleccionarEvento"
+                        style="-fx-pref-height: 36; -fx-font-size: 13; -fx-font-weight: 500;
+                               -fx-background-color: #2c2c2a; -fx-text-fill: white;
+                               -fx-border-radius: 8; -fx-background-radius: 8;
+                               -fx-padding: 0 20; -fx-cursor: hand;"/>
+                <Label fx:id="lblMensaje" text=""
+                       style="-fx-font-size: 13; -fx-text-fill: #a32d2d;"/>
+            </HBox>
+        </VBox>
+    </VBox>
+</AnchorPane>
