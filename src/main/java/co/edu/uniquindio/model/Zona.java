@@ -1,5 +1,7 @@
 package co.edu.uniquindio.model;
 
+import co.edu.uniquindio.model.enums.EstadoAsiento;
+
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
@@ -29,13 +31,20 @@ public class Zona {
     public void agregarAsiento(Asiento asiento) {
         asientos.add(asiento);
     }
-    public long contarDisponibles(){
-        //corregir
-        return asientos.size();
+    // reemplazar contarDisponibles()
+    public long contarDisponibles() {
+        return asientos.stream()
+                .filter(a -> a.getEstado() == EstadoAsiento.DISPONIBLE)
+                .count();
     }
-    public double getPorcentajeOcupacion(){
-        //corregir
-        return capacidad * precioBase;
+
+    // reemplazar getPorcentajeOcupacion()
+    public double getPorcentajeOcupacion() {
+        if (asientos.isEmpty()) return 0.0;
+        long ocupados = asientos.stream()
+                .filter(a -> a.getEstado() != EstadoAsiento.DISPONIBLE)
+                .count();
+        return (double) ocupados / asientos.size() * 100;
     }
     public void agregarTarifa(Tarifa tarifa) {
         //corregir
