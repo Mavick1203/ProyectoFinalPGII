@@ -19,31 +19,42 @@ import java.util.List;
 public class AdminViewController {
 
     // ── Pestaña Eventos ───────────────────────────────────────────────────────
-    @FXML private ListView<Evento>  lstEventos;
-    @FXML private Label             lblEstadoEvento;
+    @FXML
+    private ListView<Evento> lstEventos;
+    @FXML
+    private Label lblEstadoEvento;
 
     // ── Pestaña Usuarios ──────────────────────────────────────────────────────
-    @FXML private ListView<Usuario> lstUsuarios;
-    @FXML private Label             lblEstadoUsuario;
+    @FXML
+    private ListView<Usuario> lstUsuarios;
+    @FXML
+    private Label lblEstadoUsuario;
 
     // ── Pestaña Compras ───────────────────────────────────────────────────────
-    @FXML private ListView<Compra>  lstCompras;
-    @FXML private Label             lblEstadoCompra;
+    @FXML
+    private ListView<Compra> lstCompras;
+    @FXML
+    private Label lblEstadoCompra;
 
     // ── Pestaña Métricas ──────────────────────────────────────────────────────
-    @FXML private Label lblTotalVentas;
-    @FXML private Label lblIngresoTotal;
-    @FXML private Label lblTotalCancelaciones;
-    @FXML private Label lblTasaCancelacion;
+    @FXML
+    private Label lblTotalVentas;
+    @FXML
+    private Label lblIngresoTotal;
+    @FXML
+    private Label lblTotalCancelaciones;
+    @FXML
+    private Label lblTasaCancelacion;
 
-    @FXML private Label lblMensaje;
+    @FXML
+    private Label lblMensaje;
 
-    private AdminController   adminController;
-    private EventoController  eventoController;
+    private AdminController adminController;
+    private EventoController eventoController;
 
-    public void setAdminController(AdminController adminController,
-                                   EventoController eventoController) {
-        this.adminController  = adminController;
+    public void setControllers(AdminController adminController,
+                               EventoController eventoController) {
+        this.adminController = adminController;
         this.eventoController = eventoController;
         cargarEventos();
         cargarUsuarios();
@@ -52,6 +63,76 @@ public class AdminViewController {
     }
 
     // ── Eventos ───────────────────────────────────────────────────────────────
+
+    @FXML
+    public void onIrARecintos() {
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/fxml/admin/RecintoView.fxml"));
+            Parent root = loader.load();
+            RecintoViewController vc = loader.getController();
+            vc.setControllers(
+                    App.recintoController,
+                    App.zonaController);
+            Stage stage = (Stage) lblMensaje.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            lblMensaje.setText("Error al cargar recintos.");
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void onIrAIncidencias() {
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/fxml/admin/IncidenciaView.fxml"));
+            Parent root = loader.load();
+            IncidenciaViewController vc = loader.getController();
+            vc.setIncidenciaController(App.incidenciaController);
+            Stage stage = (Stage) lblMensaje.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            lblMensaje.setText("Error al cargar incidencias.");
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void onIrAReportes() {
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/fxml/admin/ReporteView.fxml"));
+            Parent root = loader.load();
+            ReporteViewController vc = loader.getController();
+            vc.setReporteController(App.reporteController);
+            Stage stage = (Stage) lblMensaje.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            lblMensaje.setText("Error al cargar reportes.");
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    public void onCrearEvento() {
+        try {
+            FXMLLoader loader = new FXMLLoader(
+                    getClass().getResource("/fxml/admin/CrearEventoView.fxml"));
+            Parent root = loader.load();
+            CrearEventoViewController vc = loader.getController();
+            vc.setEventoController(App.eventoController);
+            Stage stage = (Stage) lblMensaje.getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
+        } catch (Exception e) {
+            lblMensaje.setText("Error al cargar crear evento.");
+            e.printStackTrace();
+        }
+    }
 
     @FXML
     public void initialize() {
@@ -161,6 +242,7 @@ public class AdminViewController {
     public void onActualizarMetricas() {
         cargarMetricas();
     }
+
 
     @FXML
     public void onCerrarSesion() {

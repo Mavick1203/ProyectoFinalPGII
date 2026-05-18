@@ -44,6 +44,11 @@ public class RecintoViewController {
     }
 
     @FXML
+    private ComboBox<String> cmbConfiguracion;
+
+
+
+    @FXML
     public void initialize() {
         lstRecintos.setCellFactory(lv -> new ListCell<>() {
             @Override
@@ -52,6 +57,10 @@ public class RecintoViewController {
                 setText(empty || r == null ? null
                         : r.getNombre() + " | " + r.getCiudad()
                         + " | Cap: " + r.getCapacidad());
+                // en initialize() agregar:
+                cmbConfiguracion.setItems(FXCollections.observableArrayList(
+                        "NUMERADA", "GENERAL"));
+                cmbConfiguracion.setValue("NUMERADA");
             }
         });
 
@@ -184,10 +193,16 @@ public class RecintoViewController {
         txtConfiguracionZona.clear();
     }
 
+    // reemplazar navegarA():
     private void navegarA(String ruta) {
         try {
             FXMLLoader loader = new FXMLLoader(getClass().getResource(ruta));
             Parent root = loader.load();
+            AdminViewController vc = loader.getController();
+            vc.setControllers(
+                    co.edu.uniquindio.App.adminController,
+                    co.edu.uniquindio.App.eventoController
+            );
             Stage stage = (Stage) lstRecintos.getScene().getWindow();
             stage.setScene(new Scene(root));
             stage.show();

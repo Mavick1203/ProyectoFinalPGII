@@ -1,5 +1,6 @@
 package co.edu.uniquindio.viewControllers;
 
+import co.edu.uniquindio.App;
 import co.edu.uniquindio.controllers.EventoController;
 import co.edu.uniquindio.model.Evento;
 import javafx.collections.FXCollections;
@@ -69,6 +70,7 @@ public class EventoViewController {
                     getClass().getResource("/fxml/usuario/CompraView.fxml"));
             Parent root = loader.load();
             CompraViewController vc = loader.getController();
+            vc.setCompraController(App.compraController); // agregar
             vc.setEvento(seleccionado);
             Stage stage = (Stage) lstEventos.getScene().getWindow();
             stage.setScene(new Scene(root));
@@ -81,12 +83,14 @@ public class EventoViewController {
 
     @FXML
     public void onIrAPerfil() {
-        navegarA("/fxml/usuario/PerfilView.fxml");
+        navegarA(PerfilViewController vc = loader.getController();
+        vc.setUsuarioController(App.usuarioController);
     }
 
     @FXML
     public void onIrAHistorial() {
-        navegarA("/fxml/usuario/HistorialView.fxml");
+        navegarA(HistorialViewController vc = loader.getController();
+        vc.setUsuarioController(App.usuarioController);
     }
 
     @FXML

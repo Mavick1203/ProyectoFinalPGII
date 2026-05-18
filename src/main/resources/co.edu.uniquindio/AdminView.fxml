@@ -23,6 +23,26 @@
             <Region HBox.hgrow="ALWAYS"/>
             <Label fx:id="lblMensaje" text=""
                    style="-fx-font-size: 13; -fx-text-fill: #9FE1CB;"/>
+            <Button text="Recintos" onAction="#onIrARecintos"
+                    style="-fx-font-size: 13; -fx-background-color: transparent;
+               -fx-text-fill: white; -fx-border-color: #888780;
+               -fx-border-radius: 8; -fx-background-radius: 8;
+               -fx-pref-height: 30; -fx-cursor: hand;"/>
+            <Button text="Incidencias" onAction="#onIrAIncidencias"
+                    style="-fx-font-size: 13; -fx-background-color: transparent;
+               -fx-text-fill: white; -fx-border-color: #888780;
+               -fx-border-radius: 8; -fx-background-radius: 8;
+               -fx-pref-height: 30; -fx-cursor: hand;"/>
+            <Button text="Reportes" onAction="#onIrAReportes"
+                    style="-fx-font-size: 13; -fx-background-color: transparent;
+               -fx-text-fill: white; -fx-border-color: #888780;
+               -fx-border-radius: 8; -fx-background-radius: 8;
+               -fx-pref-height: 30; -fx-cursor: hand;"/>
+            <Button text="+ Crear evento" onAction="#onCrearEvento"
+                    style="-fx-font-size: 13; -fx-background-color: #0f6e56;
+               -fx-text-fill: white; -fx-border-radius: 8;
+               -fx-background-radius: 8;
+               -fx-pref-height: 30; -fx-cursor: hand;"/>
             <Button text="Cerrar sesión" onAction="#onCerrarSesion"
                     style="-fx-font-size: 13; -fx-background-color: transparent;
                            -fx-text-fill: #f09595; -fx-border-color: #f09595;
