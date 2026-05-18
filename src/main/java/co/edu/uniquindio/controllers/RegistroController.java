@@ -1,5 +1,6 @@
 package co.edu.uniquindio.controllers;
 import co.edu.uniquindio.model.enums.RolUsuario;
+import co.edu.uniquindio.service.interfaces.IUsuarioServicio;
 
 /**
  * Controller de Registro — solo lógica y validaciones.

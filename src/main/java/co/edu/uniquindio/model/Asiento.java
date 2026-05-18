@@ -81,5 +81,10 @@ public class Asiento implements IComponenteRecinto {
                 ", estado=" + estado +
                 '}';
     }
+
+    public boolean isDisponible() {
+        return estado == EstadoAsiento.DISPONIBLE;
+
+    }
 }
 

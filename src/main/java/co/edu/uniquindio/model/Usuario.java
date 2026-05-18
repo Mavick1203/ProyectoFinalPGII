@@ -11,7 +11,7 @@ public class Usuario {
     private String nombre;
     private String correo;
     private String telefono;
-    private String Contrasenia;
+    private String contrasenia;
 
 
     /**
@@ -25,7 +25,7 @@ public class Usuario {
         this.nombre = nombre;
         this.correo = correo;
         this.telefono = telefono;
-        this.Contrasenia = Contrasenia;
+        this.contrasenia = Contrasenia;
         this.metodosPago = new ArrayList<>(metodosPago);
         this.rolUsuario = rolUsuario;
     }
@@ -66,11 +66,11 @@ public class Usuario {
     }
 
     public String getContrasenia() {
-        return Contrasenia;
+        return contrasenia;
     }
 
     public void setContrasenia(String contrasenia) {
-        Contrasenia = contrasenia;
+        this.contrasenia = contrasenia;
     }
 
     public List<String> getMetodosPago() {
@@ -92,7 +92,7 @@ public class Usuario {
                 ", nombre='" + nombre + '\'' +
                 ", correo='" + correo + '\'' +
                 ", telefono='" + telefono + '\'' +
-                ", Contrasenia='" + Contrasenia + '\'' +
+                ", Contrasenia='" + contrasenia + '\'' +
                 ", metodosPago=" + metodosPago +
                 ", rolUsuario=" + rolUsuario +
                 '}';
